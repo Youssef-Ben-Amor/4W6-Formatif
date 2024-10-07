@@ -1,0 +1,61 @@
+<div class="container">
+
+  <div class="row mt-2">
+    <div class="col-3 py-1">
+
+      {{myWisdom}}
+
+    </div>
+    <div class="col-9 py-1">
+
+      {{n}}
+
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-3 py-1">
+
+      <p>{{dog.name}}</p>
+      <p>{{dog.dogInfo()}}</p>
+      <img src="{{dog.imgUrl}}" alt="{{dog.name}}" class="img-fluid">
+
+    </div>
+    <div class="col-9 py-1">
+
+      <ul>
+        <li *ngFor="let h of hateList">{{h}}</li>
+      </ul>
+
+    </div>
+  </div>
+
+  <div class="row mt-2">
+    <div class="col-3 py-1">
+
+      <!-- Affichage de la liste d'amis -->
+      <p *ngFor="let f of friends">{{f.name}} - {{f.occupation}} <span *ngIf="f.occupation == 'artiste ASMR'">😳</span></p>
+
+    </div>
+    <div class="col-9 py-1">
+
+      <!-- Formulaire pour ajouter un ami -->
+      <input type="text" name="name" [(ngModel)]="name">
+      <input type="text" name="occupation" [(ngModel)]="occupation">
+      <button type="submit" (click)="addFriend()">Ajouter un ami</button>
+      <br>
+      <button (click)="removeFriend()">Retirer le dernier ami</button>
+
+    </div>
+  </div>
+
+  <div class="row mt-2 {{darkMode ? ' dark' : ''}}">
+    <div class="col-3 py-1">
+      <button (click)="toggleMode()">{{darkMode ? '🌞' : '🌙'}}</button>
+    </div>
+    <div class="col-9 py-1">
+      {{darkMode ? 'Thème clair' : 'Thème obscur'}}
+    </div>
+  </div>
+
+</div>
